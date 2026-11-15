@@ -555,3 +555,36 @@ section:not(.hero)>.wrap.sec{width:min(1440px,calc(100% - 48px));min-height:100s
   .xp:nth-child(3n){min-height:460px}
   .scroll-ind{display:none}
 }
+
+/* Edge-to-edge event strip and screen-fitting cards on phones. */
+.info-strip{width:100%;max-width:none;margin-inline:0;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;padding-bottom:0;background:rgba(7,12,8,.72);border-top:1px solid var(--line)}
+.info-strip>div{border:0;border-left:1px solid var(--line);border-radius:0;background:transparent}
+.info-strip>div:first-child{border-left:0}
+@media(max-width:640px){
+  html,body,#root,main,section,.nav,.foot{width:100vw;max-width:100vw;min-width:0;overflow-x:clip}
+  html{scrollbar-width:none}
+  html::-webkit-scrollbar{display:none;width:0;height:0}
+  .wrap,section:not(.hero)>.wrap.sec{width:calc(100vw - 32px);max-width:none;min-width:0}
+  .hero{width:100vw;overflow:hidden}
+  .info-strip{width:100vw;margin-inline:calc(50% - 50vw);grid-template-columns:minmax(0,1fr);border-top:1px solid var(--line)}
+  .info-strip>div{min-width:0;min-height:64px;padding:14px 16px;border:0;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .info-strip>div:first-child{border-top:0}
+  .info-strip dt{flex:none}
+  .info-strip dd{min-width:0;text-align:right;overflow-wrap:anywhere}
+  .track{width:100vw;max-width:100vw;margin-inline:calc(50% - 50vw);padding:20px 16px 56px;gap:12px}
+  .xp{width:calc(100vw - 32px);min-height:min(500px,140vw)}
+  .xp:nth-child(2n){margin-top:0}
+  .xp:nth-child(3n){min-height:min(500px,140vw)}
+  .hud{width:100%;grid-template-columns:minmax(0,1fr);gap:12px}
+  .panel{width:100%;min-width:0;padding:18px}
+  .panel dd{overflow-wrap:anywhere}
+  .team-grid{grid-template-columns:minmax(0,1fr)}
+  .co{width:100%;min-width:0}
+  .co:nth-child(2){margin-top:0}
+  .v-grid{grid-template-columns:minmax(0,1fr)}
+  .v-card{width:100%;min-width:0}
+  .faq-list{width:100%;max-width:none}
+  .rmodal{padding-inline:10px}
+  .rbox{width:100%;padding:22px 18px}
+  .rsubmit{font-size:1rem}
+}
