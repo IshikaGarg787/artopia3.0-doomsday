@@ -517,15 +517,21 @@ section:not(.hero)>.wrap.sec{width:min(1440px,calc(100% - 48px));min-height:100s
 
 /* Keep the mobile layout inside the device viewport; swipe cards within their own track. */
 @media(max-width:640px){
-  html,body,#root{width:100%;max-width:100%;overflow-x:clip}
-  .wrap,section:not(.hero)>.wrap.sec{width:calc(100% - 32px);max-width:100%;min-width:0}
-  .nav-in{gap:8px}
+  /* Keep the page canvas tied to the mobile layout viewport. Using 100vw on
+     html/body can include the browser's scrollbar gutter and create a blank
+     strip at the right edge on some Android browsers. */
+  html,body,#root{width:100%;min-width:100%;max-width:100%;overflow-x:clip}
+  main,section,.nav{width:100%;max-width:100%;min-width:0}
+  html{scrollbar-width:none}
+  html::-webkit-scrollbar{display:none;width:0;height:0}
+  .wrap,section:not(.hero)>.wrap.sec{width:calc(100% - 20px);max-width:100%;min-width:0}
+  .nav-in{width:calc(100% - 20px);gap:8px}
   .brand{min-width:0;gap:8px;font-size:clamp(.78rem,3.6vw,.95rem);letter-spacing:.035em}
   .brand span{white-space:nowrap}
   .mark{width:42px;height:42px}
   .burger{width:42px;height:42px;flex:none}
   .hero{display:block;min-height:100svh;width:100%;overflow:hidden;padding:calc(var(--nav-h) + env(safe-area-inset-top,0px) + 18px) 0 16px}
-  .hero-inner{width:calc(100% - 32px);max-width:100%;margin:0 auto 24px;gap:18px;transform:none}
+  .hero-inner{width:calc(100% - 20px);max-width:100%;margin:0 auto 24px;gap:18px;transform:none}
   .hero-lockup,.hero-story{width:100%;max-width:100%;min-width:0}
   .hero-story{justify-self:center;padding:16px 0 0}
   .status-pill{margin-bottom:14px;max-width:100%}
@@ -536,7 +542,7 @@ section:not(.hero)>.wrap.sec{width:min(1440px,calc(100% - 48px));min-height:100s
   .hero-copy{max-width:38ch}
   .hero .cta-row{width:100%;flex-direction:column;flex-wrap:nowrap;align-items:center;justify-content:center;gap:10px;margin-top:18px}
   .hero .cta-row>.btn{width:min(100%,420px);min-height:48px;padding:.82em 1em;font-size:.92rem}
-  .info-strip{position:relative;width:calc(100% - 32px);max-width:100%;margin:0 auto;grid-template-columns:minmax(0,1fr);gap:8px;padding-bottom:12px}
+  .info-strip{position:relative;width:calc(100% - 20px);max-width:100%;margin:0 auto;grid-template-columns:minmax(0,1fr);gap:8px;padding-bottom:12px}
   .info-strip>div{min-width:0}
   .info-strip dd{font-size:.86rem;overflow-wrap:anywhere}
   section:not(.hero)>.wrap.sec{min-height:100svh;padding:72px 0}
